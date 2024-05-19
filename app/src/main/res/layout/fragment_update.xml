@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.individualproject.ui.updateWord.UpdateViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.add.AddFragment"
+            android:layout_marginBottom="200dp"
+            android:padding="20dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/update_word"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintBottom_toTopOf="@id/edTitle"/>
+
+        <EditText
+            android:id="@+id/edTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/input_box"
+            android:hint="@string/title"
+            android:padding="15dp"
+            android:text="@={viewModel.title}"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintBottom_toTopOf="@id/tvMeaning"/>
+
+        <TextView
+            android:id="@+id/tvMeaning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/meaning"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/edTitle"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintBottom_toTopOf="@id/edMeaning"/>
+
+        <EditText
+            android:id="@+id/edMeaning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/input_box"
+            android:hint="@string/meaning"
+            android:padding="15dp"
+            android:text="@={viewModel.meaning}"
+            app:layout_constraintTop_toBottomOf="@id/tvMeaning"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintBottom_toTopOf="@id/tvSynonyms"/>
+
+        <TextView
+            android:id="@+id/tvSynonyms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/synonyms"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/edMeaning"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintBottom_toTopOf="@id/edSynonyms"/>
+
+        <EditText
+            android:id="@+id/edSynonyms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/input_box"
+            android:hint="@string/synonyms"
+            android:padding="15dp"
+            android:text="@={viewModel.synonyms}"
+            app:layout_constraintTop_toBottomOf="@id/tvSynonyms"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintBottom_toTopOf="@id/tvDetails"/>
+
+        <TextView
+            android:id="@+id/tvDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/details"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/edSynonyms"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintBottom_toTopOf="@id/edDetails"/>
+
+        <EditText
+            android:id="@+id/edDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/input_box"
+            android:hint="@string/details"
+            android:padding="15dp"
+            android:text="@={viewModel.details}"
+            app:layout_constraintTop_toBottomOf="@id/tvDetails"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintBottom_toTopOf="@id/mbUpdate"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbUpdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:padding="15dp"
+            android:text="@string/update"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            android:onClick="@{()-> viewModel.updateWord()}"
+            app:layout_constraintBottom_toBottomOf="@id/guideline4"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/edDetails" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

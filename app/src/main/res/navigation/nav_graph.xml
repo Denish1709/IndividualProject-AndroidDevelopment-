@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/containerFragment">
+
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.individualproject.ui.addWord.AddFragment"
+        android:label="AddFragment" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.individualproject.ui.details.DetailFragment"
+        android:label="DetailFragment">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detailFragment_to_updateFragment"
+            app:destination="@id/updateFragment">
+            <argument
+                android:name="id"
+                app:argType="integer" />
+        </action>
+        <action
+            android:id="@+id/action_detailFragment_to_containerFragment"
+            app:destination="@id/containerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/containerFragment"
+        android:name="com.example.individualproject.ui.container.ContainerFragment"
+        android:label="ContainerFragment" >
+        <action
+            android:id="@+id/action_containerFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_containerFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.individualproject.ui.updateWord.UpdateFragment"
+        android:label="UpdateFragment">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+</navigation>
